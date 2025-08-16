@@ -48,7 +48,7 @@ ggplot(data=df) +
 # Location of Multi-Vehicle Crashes during Peak Hour that resulted in hospitlisation on 2023
 
 library(ggmap)
-register_google(key="AIzaSyDqLmeXjRktRQ7NfZvKzJJgKWNqI1nqXFY")
+register_google(key="Enter API Key Here")
 qld <- geocode("Brisbane, Queensland")
 
 df_m <- df %>% filter(Crash_Severity == "Hospitalisation", Crash_Type == "Multi-Vehicle",
@@ -57,4 +57,5 @@ df_m <- df %>% filter(Crash_Severity == "Hospitalisation", Crash_Type == "Multi-
 ggmap(get_map(qld, zoom = 10, maptype = "roadmap"))+
   geom_point(mapping=aes(x=Crash_Longitude, y=Crash_Latitude), color="red",data=df_m)+
   geom_text(aes(x = 153, y = -27.5, label = "CBD"), color = "black", size = 5)
+
   
